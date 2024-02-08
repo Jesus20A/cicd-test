@@ -25,3 +25,10 @@ jobs:
         
     - name: Push Docker images
       run: docker push ${{ secrets.REPO }}:$IMAGE_TAG
+    
+    - name: Cleanup build folder
+      run: |
+        ls -la ./
+        rm -rf ./* || true
+        rm -rf ./.??* || true
+        ls -la ./
