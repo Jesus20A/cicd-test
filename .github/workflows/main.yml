@@ -24,4 +24,4 @@ jobs:
         password: ${{ secrets.DOCKERHUB_TOKEN }}
         
     - name: Push Docker images
-      run: docker push ${{ secrets.REPO }}:$IMAGE_TAG
+      run: docker push jesus20a/projects:$IMAGE_TAG
