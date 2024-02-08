@@ -4,7 +4,7 @@ on:
   workflow_dispatch:
   
 env:
-  IMAGE_TAG: cicd-test-${{ github.run_number }}-${{ github.run_id }}-$(date +%F)
+  IMAGE_TAG: cicd-test-${{ github.run_number }}-${{ github.run_id }}
   
 jobs:
 
@@ -15,7 +15,7 @@ jobs:
     steps:
     - uses: actions/checkout@v3
     - name: Build the Docker image
-      run: docker build . --file Dockerfile --tag ${{ secrets.REPO}}:"$IMAGE_TAG"
+      run: docker build . --file Dockerfile --tag ${{ secrets.REPO}}:$IMAGE_TAG
       
     - name: Login to Docker Hub
       uses: docker/login-action@v3
