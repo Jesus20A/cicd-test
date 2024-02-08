@@ -4,7 +4,7 @@ on:
   workflow_dispatch:
   
 env:
-  IMAGE_TAG: cicd-tes-${{ github.run_number }}
+  IMAGE_TAG: cicd-test-${{ github.run_number }}
   
 jobs:
 
