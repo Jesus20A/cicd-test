@@ -15,7 +15,7 @@ jobs:
     steps:
     - uses: actions/checkout@v3
     - name: Build the Docker image
-      run: docker build . --file Dockerfile --tag $IMAGE_TAG
+      run: docker build . --file Dockerfile --tag ${{ secrets.REPO}}:$IMAGE_TAG
       
     - name: Login to Docker Hub
       uses: docker/login-action@v3
@@ -24,4 +24,4 @@ jobs:
         password: ${{ secrets.DOCKERHUB_TOKEN }}
         
     - name: Push Docker images
-      run: docker push jesus20a/projects:$IMAGE_TAG
+      run: docker push ${{ secrets.REPO }}:$IMAGE_TAG
